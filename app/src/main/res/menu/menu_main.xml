@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.cyl.wifi_hnust.MainActivity">
+
+    <item
+        android:id="@+id/action_internet"
+        android:orderInCategory="100"
+        android:icon="@mipmap/icon_internet"
+        android:title="@string/action_internet"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@mipmap/icon_setting"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+</menu>

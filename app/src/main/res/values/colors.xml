@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4A90E2</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="setting_item_background">#fff7f7f7</color>
+    <color name="setting_background_color">#eeeeee</color>
+    <color name="toolbar_background">#fff7f7f7</color>
+    <color name="togglebutton_offcolor">#dadbda</color>
+    <color name="white">#fafafa</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="half_black">#808080</color>
+    <color name="backgroundColor">#E8E8E0</color>
+    <color name="backgroundColorPress">#DBDBD3</color>
+    <color name="red">#FF3B00</color>
+    <color name="red_press">#990000</color>
+    <color name="dark_gray">#4C535B</color>
+    <color name="dark_gray_press">#ff7e8a97</color>
+    <color name="MainThemeColor_blue">#4A90E2</color>
+    <color name="botton_background_blue_normal">#4A90E2</color>
+    <color name="botton_background_blue_press">#0077bb</color>
+    <color name="accountmanager_oringe">#FF6835</color>
+    <color name="accountmanager_button_backgound_oringe_nomal">#FF6835</color>
+    <color name="accountmanager_button_backgound_oringe_press">#cc4400</color>
+    <color name="messagenatification_green">#4ebb7f</color>
+    <color name="messagenatification_botton_background_blue_normal">#4ebb7f</color>
+    <color name="messagenatification_botton_background_blue_press">#009900</color>
+    <color name="general_purple">#8866bb</color>
+    <color name="about_blue">#4A90E2</color>
+    <color name="setting_blue">#4A90E2</color>
+    <color name="unable">#dadbda</color>
+</resources>
