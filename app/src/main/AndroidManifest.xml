@@ -34,7 +34,9 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity"
+            android:label="@string/action_internet"
+            ></activity>
         <service
             android:name=".utils.BackgroundTask"
             android:enabled="true"
