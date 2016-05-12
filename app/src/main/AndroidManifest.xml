@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.cyl.wifi_hnust">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,12 +11,16 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -27,12 +32,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AccountActivity"
-            android:label="@string/title_activity_account" />
-        <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".Main2Activity"></activity>
+        <service
+            android:name=".utils.BackgroundTask"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
     </application>
 
 </manifest>

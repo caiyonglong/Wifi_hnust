@@ -4,13 +4,16 @@ package com.cyl.wifi_hnust;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -18,8 +21,14 @@ import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+
+import com.cyl.wifi_hnust.utils.Constants;
+import com.cyl.wifi_hnust.utils.HttpUtils;
 
 import java.util.List;
 
@@ -145,28 +154,23 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         return isXLargeTablet(this);
     }
 
-
-
-
-    /**
-     * This fragment shows general preferences only. It is used when the
-     * activity is showing a two-pane settings UI.
-     */
     @SuppressLint("ValidFragment")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public class GeneralPreferenceFragment extends PreferenceFragment {
+    public class GeneralPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
+        Preference feedback;
+        EditTextPreference number;
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
             setHasOptionsMenu(true);
 
-            // Bind the summaries of EditText/List/Dialog/Ringtone preferences
-            // to their values. When their values change, their summaries are
-            // updated to reflect the new value, per the Android Design
-            // guidelines.
-            bindPreferenceSummaryToValue(findPreference("example_text"));
-            bindPreferenceSummaryToValue(findPreference("example_list"));
+            feedback = findPreference("feedback");
+            number = (EditTextPreference) findPreference("number");
+            feedback.setOnPreferenceClickListener(this);
+            bindPreferenceSummaryToValue(findPreference("number"));
+            bindPreferenceSummaryToValue(findPreference("password"));
         }
 
         @Override
@@ -178,6 +182,48 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             }
             return super.onOptionsItemSelected(item);
         }
+
+        @Override
+        public boolean onPreferenceClick(Preference preference) {
+            switch (preference.getKey()) {
+                case "feedback":
+                    customView();
+                    break;
+            }
+            return false;
+        }
+        private void customView() {
+            final LinearLayout linear = (LinearLayout) getLayoutInflater().inflate(R.layout.dialog_feedback, null);
+            AlertDialog.Builder builder = new AlertDialog.Builder(SettingsActivity.this);
+            builder.setTitle("意见反馈");
+            builder.setView(linear);
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    final EditText content = (EditText) linear.findViewById(R.id.content);
+
+                    if (!TextUtils.isEmpty(content.getText())) {
+                        new Thread() {
+                            @Override
+                            public void run() {
+                                super.run();
+                                //获取初始开关状态
+                                String param = "?user_id=" + number.getText().trim()+
+                                        "&content="+content.getText().toString().trim();
+                                HttpUtils.sendGet(Constants.FEEDBACK_URL + param);
+                            }
+                        }.start();
+                    }
+
+                }
+            });
+            builder.create()
+                    .show();
+
+        }
     }
+
+
 
 }
