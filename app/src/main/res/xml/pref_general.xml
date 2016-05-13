@@ -12,6 +12,7 @@
         <SwitchPreference
             android:defaultValue="false"
             android:key="auto_conn"
+
             android:summary="校园网意外断线后会自动连接"
             android:title="自动连接" />
 

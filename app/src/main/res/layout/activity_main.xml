@@ -20,13 +20,13 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <Switch
+            <com.cyl.wifi_hnust.utils.SwitchButton
                 android:layout_gravity="right"
-                android:text=""
                 android:id="@+id/my_switch"
-                style="@style/TextAppearance.AppCompat.Widget.Switch"
+                style="@style/SwitchButtonStyleMD"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
+
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>

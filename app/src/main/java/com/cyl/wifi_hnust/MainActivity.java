@@ -33,6 +33,7 @@ import android.widget.Toast;
 import com.cyl.wifi_hnust.utils.BackgroundTask;
 import com.cyl.wifi_hnust.utils.Network;
 import com.cyl.wifi_hnust.utils.PasswordHandler;
+import com.cyl.wifi_hnust.utils.SwitchButton;
 import com.cyl.wifi_hnust.utils.SystemStatusManager;
 
 import java.util.ArrayList;
@@ -47,13 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     static TextView connect_status;
     static Button operateButton;
     static ImageView login_info;
-    static Switch auto_switch;
     static int operat_status = 0;
     SwipeRefreshLayout sf;
     Network network;
     CardView wifi_container;
 
-    private Switch my_switch;
+    private SwitchButton my_switch;
     PasswordHandler passwordHandler;
     WifiManager wifimanager;
     List<ScanResult> wifiScanResult = new ArrayList<>();
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
 
         login_info = (ImageView) findViewById(R.id.login_info);
-        my_switch = (Switch) findViewById(R.id.my_switch);
+        my_switch = (SwitchButton) findViewById(R.id.my_switch);
         connect_status = (TextView) findViewById(R.id.connect_status);
         wifi_container = (CardView) findViewById(R.id.wifi_container);
 
