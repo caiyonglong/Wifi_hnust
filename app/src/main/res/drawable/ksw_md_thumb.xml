@@ -98,7 +98,7 @@
 				android:right="@dimen/ksw_md_thumb_solid_inset"
 				android:top="@dimen/ksw_md_thumb_solid_inset">
 				<shape android:shape="oval">
-					<solid android:color="@color/colorPrimaryDark"/>
+					<solid android:color="@color/colorPrimaryDark1"/>
 				</shape>
 			</item>
 		</layer-list>
@@ -166,7 +166,7 @@
 				android:right="@dimen/ksw_md_thumb_solid_inset"
 				android:top="@dimen/ksw_md_thumb_solid_inset">
 				<shape android:shape="oval">
-					<solid android:color="@color/colorPrimaryDark"/>
+					<solid android:color="@color/colorPrimaryDark1"/>
 				</shape>
 			</item>
 		</layer-list>
